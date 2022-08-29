@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Push</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_main">Push</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="notification_permission_warning">Notification permissions not granted</string>
+    <string name="grant_notification_permissions">Grant notification permissions</string>
+
+    <string name="default_notification_channel_name">device_pushes</string>
+    <string name="default_notification_channel_id">Pushes from other devices</string>
+
+    <string name="notification_title">New data pushed</string>
+    <string name="copy">Copy</string>
+    <string name="copied">Copied</string>
+    <string name="open">Open</string>
+</resources>

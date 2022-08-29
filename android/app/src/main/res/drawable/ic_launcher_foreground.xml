@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <group android:scaleX="0.85"
+      android:scaleY="0.85"
+      android:translateX="8.1"
+      android:translateY="8.1">
+      <!--! Font Awesome Pro 6.1.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+      <path android:fillColor="#FFFFFF" android:pathData="m 75.897432,31.474916 c -0.799921,-0.543113 -1.8339,-0.58925 -2.679747,-0.111973 L 24.337567,59.169225 c -0.835946,0.484545 -1.329732,1.390435 -1.272132,2.348993 0.05761,0.961191 0.656663,1.807566 1.544225,2.179401 l 16.148009,6.781533 v 11.955635 c 0,0.924955 0.505297,1.773858 1.3167,2.218376 0.378883,0.207511 0.789694,0.312847 1.116235,0.312847 0.475699,0 0.952028,-0.134935 1.368315,-0.40154 l 11.713363,-7.52731 10.381916,4.36091 c 0.314323,0.13167 0.64687,0.197505 0.979309,0.197505 0.42956,0 0.857541,-0.108602 1.240858,-0.325909 0.679734,-0.381843 1.146056,-1.059681 1.258766,-1.830741 l 6.741504,-45.505152 c 0.234161,-0.957398 -0.187183,-1.91248 -0.977203,-2.458857 z M 61.961479,43.59003 42.253114,65.594721 31.301331,61.023138 Z M 45.718668,77.803163 v -5.199385 l 4.892857,2.055106 z M 65.700907,75.475238 47.09857,67.66036 70.757035,41.379028 Z"/>
+  </group>
+</vector>
