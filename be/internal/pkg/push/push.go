@@ -61,8 +61,8 @@ func (push *Push) SendPushV1Handler(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Access-Control-Allow-Headers", "content-type")
 	}
 
-	w.WriteHeader(http.StatusOK)
 	if r.Method == http.MethodOptions {
+		w.WriteHeader(http.StatusOK)
 		return
 	}
 
@@ -117,7 +117,7 @@ func (push *Push) getAuthenticatedUserId(r *http.Request) (*string, *HttpError) 
 	token := authHeader[len("Bearer "):]
 	fbToken, err := push.getAuth(r).VerifyIDTokenAndCheckRevoked(r.Context(), token)
 	if err != nil {
-		log.Println("Token not valid")
+		log.Printf("Token not valid: %v\n", err)
 		return nil, newHttpError(http.StatusUnauthorized, "Unauthorized")
 	}
 
