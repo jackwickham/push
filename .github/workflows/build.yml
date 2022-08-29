@@ -13,10 +13,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Compile
+      - name: Compile BE
         run: |
-          (cd be && go build)
-          (cd fe && npm run build)
+          cd be && go build
+      - name: Compile FE
+        run: |
+          cd fe
+          npm ci
+          npm run build
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Log in to the GitHub Container registry
