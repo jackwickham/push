@@ -36,7 +36,7 @@ const onSubmit = async (e: Event) => {
   sent.value = false;
 
   try {
-    const result = await fetch("http://localhost:9785/api/v1/send-push", {
+    const result = await fetch("/api/v1/send-push", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
