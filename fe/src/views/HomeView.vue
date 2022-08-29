@@ -83,11 +83,6 @@ const onSubmit = async (e: Event) => {
 <style>
   .home {
     font-size: 1.5em;
-    flex: 0 1 100%
-  }
-
-  .home::before, .home::after {
-    flex: 1 0 0;
   }
 
   .main-form > *:not(:first-child) {

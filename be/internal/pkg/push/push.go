@@ -90,6 +90,8 @@ func (push *Push) SendPushV1Handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	log.Printf("Sending notification for user %s\n", *userId)
+
 	message := messaging.Message{
 		Data: map[string]string{
 			"payload": request.Payload,
