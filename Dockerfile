@@ -2,6 +2,8 @@
 
 FROM ubuntu:latest
 
+RUN sudo apt install ca-certificates
+
 WORKDIR /app
 
 COPY be/push ./
