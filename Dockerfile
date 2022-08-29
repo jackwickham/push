@@ -2,7 +2,7 @@
 
 FROM ubuntu:latest
 
-RUN apt install ca-certificates
+RUN apt-get update && apt-get install -y ca-certificates
 
 WORKDIR /app
 
