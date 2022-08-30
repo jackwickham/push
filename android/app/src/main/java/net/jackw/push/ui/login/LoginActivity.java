@@ -11,12 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import net.jackw.push.databinding.ActivityLoginBinding;
 import net.jackw.push.notifications.NotificationRegistrationManager;
 import net.jackw.push.ui.main.MainActivity;
@@ -84,7 +81,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void onFieldUpdate() {
-        boolean canSubmit = emailEditText.getText().length() > 0 && passwordEditText.getText().length() > 0;
+        boolean canSubmit = emailEditText.getText().length() > 0
+                && passwordEditText.getText().length() > 0;
         loginButton.setEnabled(canSubmit);
         loginErrorText.setVisibility(View.GONE);
     }
@@ -95,7 +93,9 @@ public class LoginActivity extends AppCompatActivity {
         emailEditText.setEnabled(false);
         passwordEditText.setEnabled(false);
 
-        auth.signInWithEmailAndPassword(emailEditText.getText().toString(), passwordEditText.getText().toString())
+        auth.signInWithEmailAndPassword(
+                        emailEditText.getText().toString(),
+                        passwordEditText.getText().toString())
                 .addOnCompleteListener(task -> {
                     loadingSpinner.setVisibility(View.GONE);
                     if (task.isSuccessful()) {

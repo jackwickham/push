@@ -1,7 +1,6 @@
 package net.jackw.push;
 
 import androidx.annotation.Nullable;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

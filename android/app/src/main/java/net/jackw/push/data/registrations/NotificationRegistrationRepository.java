@@ -1,10 +1,8 @@
 package net.jackw.push.data.registrations;
 
 import androidx.annotation.Nullable;
-
-import net.jackw.push.data.EventListener;
-
 import java.util.Set;
+import net.jackw.push.data.EventListener;
 
 public class NotificationRegistrationRepository {
 

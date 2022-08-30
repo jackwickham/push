@@ -4,9 +4,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.util.Log;
-
 import com.google.firebase.messaging.FirebaseMessaging;
-
 import net.jackw.push.R;
 import net.jackw.push.UserManager;
 import net.jackw.push.data.device.DeviceDetails;
@@ -40,10 +38,11 @@ public class NotificationRegistrationManager {
 
             String token = task.getResult();
             Log.d(TAG, "Notification token updated: " + token);
-            NotificationRegistrationRepository.getInstance().putRegistration(
-                    userId,
-                    deviceDetails.getDeviceId(),
-                    new NotificationRegistration(deviceDetails.getDeviceName(), token));
+            NotificationRegistrationRepository.getInstance()
+                    .putRegistration(
+                            userId,
+                            deviceDetails.getDeviceId(),
+                            new NotificationRegistration(deviceDetails.getDeviceName(), token));
         });
     }
 

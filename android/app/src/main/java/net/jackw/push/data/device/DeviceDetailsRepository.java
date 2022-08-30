@@ -1,7 +1,6 @@
 package net.jackw.push.data.device;
 
 import android.content.Context;
-
 import androidx.annotation.Nullable;
 
 public class DeviceDetailsRepository {
@@ -22,7 +21,8 @@ public class DeviceDetailsRepository {
         if (instance == null) {
             synchronized (DeviceDetailsRepository.class) {
                 if (instance == null) {
-                    instance = new DeviceDetailsRepository(new DeviceDetailsStoreDataSource(), new DeviceDetailsDefaultDataSource());
+                    instance = new DeviceDetailsRepository(
+                            new DeviceDetailsStoreDataSource(), new DeviceDetailsDefaultDataSource());
                 }
             }
         }
@@ -30,7 +30,8 @@ public class DeviceDetailsRepository {
     }
 
     public DeviceDetails getDeviceDetails(Context context) {
-        String deviceName = storeDataSource.getDeviceName(context).orElseGet(() -> defaultDataSource.getDeviceName(context));
+        String deviceName =
+                storeDataSource.getDeviceName(context).orElseGet(() -> defaultDataSource.getDeviceName(context));
         String deviceId = storeDataSource.getDeviceId(context);
         return new DeviceDetails(deviceName, deviceId);
     }

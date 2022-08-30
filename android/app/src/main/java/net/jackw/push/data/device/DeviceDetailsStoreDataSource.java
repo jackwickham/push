@@ -2,9 +2,7 @@ package net.jackw.push.data.device;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import androidx.annotation.NonNull;
-
 import java.util.Optional;
 import java.util.UUID;
 

@@ -12,18 +12,14 @@ import android.net.Uri;
 import android.util.Log;
 import android.webkit.URLUtil;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-
+import java.util.concurrent.atomic.AtomicInteger;
 import net.jackw.push.R;
 import net.jackw.push.notifications.NotificationRegistrationManager;
-
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class PushFirebaseMessagingService extends FirebaseMessagingService {
 
@@ -41,10 +37,12 @@ public class PushFirebaseMessagingService extends FirebaseMessagingService {
             ClipData clipData = ClipData.newPlainText("data", intent.getStringExtra(EXTRA_PAYLOAD));
             clipboardManager.setPrimaryClip(clipData);
 
-            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationManager notificationManager =
+                    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.cancel(intent.getIntExtra(EXTRA_NOTIFICATION_ID, -1));
 
-            Toast.makeText(context, getText(R.string.copied), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, getText(R.string.copied), Toast.LENGTH_SHORT)
+                    .show();
         }
     };
 
@@ -65,9 +63,11 @@ public class PushFirebaseMessagingService extends FirebaseMessagingService {
         Intent copyIntent = new Intent(ACTION_COPY);
         copyIntent.putExtra(EXTRA_PAYLOAD, payload);
         copyIntent.putExtra(EXTRA_NOTIFICATION_ID, notificationId);
-        PendingIntent pendingCopyIntent = PendingIntent.getBroadcast(this, this.nextNotificationId.incrementAndGet(), copyIntent, PendingIntent.FLAG_IMMUTABLE);
+        PendingIntent pendingCopyIntent = PendingIntent.getBroadcast(
+                this, this.nextNotificationId.incrementAndGet(), copyIntent, PendingIntent.FLAG_IMMUTABLE);
 
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, getString(R.string.default_notification_channel_id))
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(
+                        this, getString(R.string.default_notification_channel_id))
                 .setContentTitle(getString(R.string.notification_title))
                 .setContentText(payload)
                 .setChannelId(getString(R.string.default_notification_channel_id))
