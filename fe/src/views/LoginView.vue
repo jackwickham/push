@@ -15,7 +15,7 @@ const error = ref<string | null>(null);
 const auth = getFirebaseAuth();
 const router = useRouter();
 
-const submit = async (e) => {
+const submit = async (e: Event) => {
   e.preventDefault();
 
   submitting.value = true;
