@@ -1,6 +1,5 @@
 package net.jackw.push.services;
 
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -24,7 +23,6 @@ import com.google.firebase.messaging.RemoteMessage;
 import net.jackw.push.R;
 import net.jackw.push.notifications.NotificationRegistrationManager;
 
-import java.net.URI;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class PushFirebaseMessagingService extends FirebaseMessagingService {

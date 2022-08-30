@@ -1,9 +1,9 @@
 export interface Device {
-    name: string,
-    id: string,
+  name: string;
+  id: string;
 }
 
 export enum CalloutType {
-    ERROR,
-    SUCCESS,
+  ERROR,
+  SUCCESS,
 }

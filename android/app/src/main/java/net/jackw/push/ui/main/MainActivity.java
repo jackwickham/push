@@ -1,42 +1,24 @@
 package net.jackw.push.ui.main;
 
 import android.Manifest;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.messaging.FirebaseMessaging;
+import android.view.View;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
 import androidx.core.content.ContextCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-import net.jackw.push.data.device.DeviceDetailsDefaultDataSource;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import net.jackw.push.data.device.DeviceDetailsRepository;
-import net.jackw.push.data.device.DeviceDetailsStoreDataSource;
-import net.jackw.push.data.registrations.NotificationRegistrationFirebaseDataSource;
-import net.jackw.push.data.registrations.NotificationRegistrationRepository;
 import net.jackw.push.databinding.ActivityMainBinding;
 import net.jackw.push.notifications.NotificationRegistrationManager;
-import net.jackw.push.notifications.Notifications;
 import net.jackw.push.ui.login.LoginActivity;
-
-import net.jackw.push.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -59,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         askNotificationPermission();
         NotificationRegistrationManager.getInstance().updateStoredToken(this.getApplicationContext());
+        NotificationRegistrationManager.getInstance().setUpNotificationChannel(this.getApplicationContext());
     }
 
     @Override

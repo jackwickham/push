@@ -11,15 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import net.jackw.push.R;
 import net.jackw.push.databinding.ActivityLoginBinding;
 import net.jackw.push.notifications.NotificationRegistrationManager;
 import net.jackw.push.ui.main.MainActivity;

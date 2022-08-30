@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { onAuthStateChanged, type User } from '@firebase/auth';
-import { useRouter } from 'vue-router';
-import { getFirebaseAuth } from '@/firebase';
-import MessageInput from '../components/MessageInput.vue';
-import DeviceSelector from '../components/DeviceSelector.vue';
-import { ref } from 'vue';
-import Callout from '../components/Callout.vue';
-import { CalloutType } from '@/types/types';
-import { isObject } from '@vue/shared';
+import { onAuthStateChanged, type User } from "@firebase/auth";
+import { useRouter } from "vue-router";
+import { getFirebaseAuth } from "@/firebase";
+import MessageInput from "../components/MessageInput.vue";
+import DeviceSelector from "../components/DeviceSelector.vue";
+import { ref } from "vue";
+import Callout from "../components/Callout.vue";
+import { CalloutType } from "@/types/types";
+import { isObject } from "@vue/shared";
 
 const router = useRouter();
 const auth = getFirebaseAuth();
@@ -40,7 +40,7 @@ const onSubmit = async (e: Event) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${await user.value!.getIdToken()}`,
+        Authorization: `Bearer ${await user.value!.getIdToken()}`,
       },
       body: JSON.stringify({
         deviceId: selectedDevice.value,
@@ -53,12 +53,12 @@ const onSubmit = async (e: Event) => {
       sent.value = true;
       message.value = "";
     }
-  } catch(e) {
+  } catch (e) {
     error.value = isObject(e) ? e.message || e.name || String(e) : String(e);
   } finally {
     submitting.value = false;
   }
-}
+};
 </script>
 
 <template>
@@ -71,35 +71,42 @@ const onSubmit = async (e: Event) => {
         Push sent successfully
       </Callout>
       <MessageInput v-model="message" :disabled="submitting" />
-      <DeviceSelector :user-id="user.uid" v-model="selectedDevice" :disabled="submitting" />
-      <input class="primary-button" type="submit" value="Send" :disabled="submitting" />
+      <DeviceSelector
+        :user-id="user.uid"
+        v-model="selectedDevice"
+        :disabled="submitting"
+      />
+      <input
+        class="primary-button"
+        type="submit"
+        value="Send"
+        :disabled="submitting"
+      />
     </form>
-    <p v-else>
-      Loading...
-    </p>
+    <p v-else>Loading...</p>
   </main>
 </template>
 
 <style>
-  .home {
-    font-size: 1.5em;
-  }
+.home {
+  font-size: 1.5em;
+}
 
-  .main-form > *:not(:first-child) {
-    margin-top: 1em;
-  }
+.main-form > *:not(:first-child) {
+  margin-top: 1em;
+}
 
-  .primary-button {
-    font-size: 1em;
-    background: #074d12;
-    border: 1px solid #147924;
-    color: #fff;
-    padding: 4px 8px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.primary-button {
+  font-size: 1em;
+  background: #074d12;
+  border: 1px solid #147924;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  .primary-button[disabled] {
-    opacity: 0.6;
-  }
+.primary-button[disabled] {
+  opacity: 0.6;
+}
 </style>

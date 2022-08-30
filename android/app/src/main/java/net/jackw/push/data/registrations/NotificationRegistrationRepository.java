@@ -4,7 +4,6 @@ import androidx.annotation.Nullable;
 
 import net.jackw.push.data.EventListener;
 
-import java.util.Map;
 import java.util.Set;
 
 public class NotificationRegistrationRepository {

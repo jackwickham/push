@@ -9,7 +9,8 @@ const firebaseConfig = {
   storageBucket: "push-508bd.appspot.com",
   messagingSenderId: "630331257007",
   appId: "1:630331257007:web:50a4deb8cf88f50265245a",
-  databaseURL: "https://push-508bd-default-rtdb.europe-west1.firebasedatabase.app/",
+  databaseURL:
+    "https://push-508bd-default-rtdb.europe-west1.firebasedatabase.app/",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -17,7 +18,7 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 
 export function getFirebaseAuth() {
-    return auth;
+  return auth;
 }
 
 export function getFirebaseDatabase() {

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { getFirebaseAuth } from '@/firebase';
+import { ref } from "vue";
+import { getFirebaseAuth } from "@/firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { isObject } from '@vue/shared';
-import { useRouter } from 'vue-router';
+import { isObject } from "@vue/shared";
+import { useRouter } from "vue-router";
 
 const credentials = ref({
   email: "",
@@ -20,7 +20,11 @@ const submit = async (e) => {
 
   submitting.value = true;
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, credentials.value.email, credentials.value.password);
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      credentials.value.email,
+      credentials.value.password
+    );
     console.log(userCredential);
   } catch (e) {
     if (isObject(e) && !!e.message) {
@@ -44,18 +48,43 @@ onAuthStateChanged(auth, (user) => {
     <h1>Login</h1>
     <form class="login-form" @submit="submit">
       <p v-if="error !== null" class="login-error">
-        {{error}}
+        {{ error }}
       </p>
       <div class="login-input-group">
         <label class="small" for="email">Email</label>
-        <input class="login-input" name="email" type="email" v-model="credentials.email" :disabled="submitting" required="true" />
+        <input
+          class="login-input"
+          name="email"
+          type="email"
+          v-model="credentials.email"
+          :disabled="submitting"
+          required
+        />
       </div>
       <div class="login-input-group">
         <label class="small" for="password">Password</label>
-        <input class="login-input" name="password" type="password" v-model="credentials.password" :disabled="submitting" required="true" />
+        <input
+          class="login-input"
+          name="password"
+          type="password"
+          v-model="credentials.password"
+          :disabled="submitting"
+          required
+        />
       </div>
-      <input type="submit" class="login-button" v-if="!submitting" value="Login" />
-      <button class="login-button login-button-disabled" @click="submit" v-if="submitting">Logging in...</button>
+      <input
+        type="submit"
+        class="login-button"
+        v-if="!submitting"
+        value="Login"
+      />
+      <button
+        class="login-button login-button-disabled"
+        @click="submit"
+        v-if="submitting"
+      >
+        Logging in...
+      </button>
     </form>
   </div>
 </template>
@@ -68,7 +97,8 @@ onAuthStateChanged(auth, (user) => {
   justify-content: center;
 }
 
-.login, .login-input {
+.login,
+.login-input {
   font-size: 1.1rem;
 }
 
@@ -99,8 +129,9 @@ onAuthStateChanged(auth, (user) => {
   width: 100%;
 }
 
-.login-input:focus-visible, .login-button:focus-visible {
-  border: 1px solid var( --color-border-focus);
+.login-input:focus-visible,
+.login-button:focus-visible {
+  border: 1px solid var(--color-border-focus);
 }
 
 .login-button {
